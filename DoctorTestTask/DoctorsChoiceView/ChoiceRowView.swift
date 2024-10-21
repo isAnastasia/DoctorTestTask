@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct DoctorChoiceRowView: View {
+    
     var doctorInfo: DoctorInfo
     var body: some View {
         VStack {
-            HStack(alignment: .top, spacing: 16) {
+            HStack(alignment: .top) {
                 Image(doctorInfo.avatar)
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 50, height: 50, alignment: .leading)
                     .clipShape(Circle())
                     
+                
                     
                 VStack(alignment: .leading, spacing: 8) {
                     VStack(alignment: .leading,  spacing: 0) {
@@ -50,15 +52,15 @@ struct DoctorChoiceRowView: View {
                     Text("От \(doctorInfo.price) Р")
                         .font(.system(size: 16, weight: .bold))
                 }
-                .frame(width: 205, height: 126, alignment: .topLeading)
-                
+                .frame(maxWidth: .infinity, minHeight: 126, alignment: .topLeading)
+
                 Image(systemName: "heart")
                     .resizable()
                     .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 2))
-                    .frame(width: 24, height: 24)
+                    .frame(width: 24, height: 24, alignment: .topTrailing)
                     .foregroundStyle(.gray)
             }
-            .frame(width: 311, height: 126, alignment: .topLeading)
+            .frame(maxWidth: .infinity)
             
             Button(action: {}) {
                 Text("Записаться")
@@ -66,11 +68,17 @@ struct DoctorChoiceRowView: View {
                     .foregroundStyle(.white)
             }
             .buttonStyle(.plain)
-            .frame(width: 311, height: 47)
+            .frame(maxWidth: .infinity, minHeight: 47)
             .background(.pink)
             .cornerRadius(8)
             
+        }.containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
+            return length - 32
+            //return 321
+        
+            
         }
+        
     }
 }
 struct DoctorChoiceRowView_Previews: PreviewProvider {
