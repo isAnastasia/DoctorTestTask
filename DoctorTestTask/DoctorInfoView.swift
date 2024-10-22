@@ -28,15 +28,15 @@ struct DoctorInfoView: View {
                 
                 VStack(alignment: .leading,  spacing: 0) {
                     Text("\(doctorInfo.surname)")
-                        .font(.system(size: 16, weight: .bold))
+                        .font(.boldBodyFont)
                         .frame(height: 24)
                     Text("\(doctorInfo.name)")
-                        .font(.system(size: 16, weight: .bold))
+                        .font(.boldBodyFont)
                         .frame(height: 24)
                 }
                     
             }
-            //.background(Color.green)
+            
             Spacer()
                 .frame(height: 20)
             
@@ -47,7 +47,7 @@ struct DoctorInfoView: View {
                         .frame(width: 24, height: 24)
                     Text("Опыт работы")
                         .foregroundStyle(Color.darkGray)
-                        .font(.system(size: 14))
+                        .font(.smallBodyFont)
                         .frame(width: 127, height: 24, alignment: .leading)
                 }
                 HStack( spacing: 4) {
@@ -56,7 +56,7 @@ struct DoctorInfoView: View {
                         .frame(width: 24, height: 24)
                     Text("Опыт работы")
                         .foregroundStyle(Color.darkGray)
-                        .font(.system(size: 14))
+                        .font(.smallBodyFont)
                         .frame(width: 127, height: 24, alignment: .leading)
                 }
                 HStack( spacing: 4) {
@@ -65,7 +65,7 @@ struct DoctorInfoView: View {
                         .frame(width: 24, height: 24)
                     Text("Опыт работы")
                         .foregroundStyle(Color.darkGray)
-                        .font(.system(size: 14))
+                        .font(.smallBodyFont)
                         .frame(width: 127, height: 24, alignment: .leading)
                 }
                 HStack( spacing: 4) {
@@ -75,7 +75,7 @@ struct DoctorInfoView: View {
                         .frame(width: 24, height: 24)
                     Text("Опыт работы")
                         .foregroundStyle(Color.darkGray)
-                        .font(.system(size: 14))
+                        .font(.smallBodyFont)
                         .frame(width: 127, height: 24, alignment: .leading)
                 }
                 
@@ -85,14 +85,14 @@ struct DoctorInfoView: View {
             HStack {
                 Text("Стоимость услуг")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    //.background(Color.blue)
+                    .font(.boldBodyFont)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
                 Text("от 600Р")
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                    //.background(Color.yellow)
+                    .font(.boldBodyFont)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
             }
-            //.frame(maxWidth: .infinity)
+
             .frame(height: 60)
             .containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
                 return length - 32
@@ -103,25 +103,30 @@ struct DoctorInfoView: View {
             
             Spacer()
                 .frame(height: 24)
-            
+
+
             LazyVStack(alignment: .leading) {
                 ForEach(lines, id: \.self) { line in
                     Text(line)
-                        .font(.system(size: 14))
+                        .font(.smallBodyFont)
+                        .lineSpacing(Constants.lineSpacing)
                         .padding(.vertical, 2)
                         
                 }
             }
             
             Spacer(minLength: 24)
-                //.frame(height: 24)
+
             
             Button(action: {
-                
+                for family in UIFont.familyNames.sorted() {
+                    let names = UIFont.fontNames(forFamilyName: family)
+                    print("Family: \(family) Font names: \(names)")
+                }
             }) {
                 Text("Записаться")
                     .frame(height: 24)
-                    .font(.system(size: 16))
+                    .font(.boldBodyFont)
                     //.fontWeight(selectedSortOption == .rating ? .bold : .regular)
                     .foregroundColor(.white )
                     //.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
