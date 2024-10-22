@@ -12,24 +12,20 @@ struct ContentView: View {
     var body: some View {
         TabView {
 
-            
             NavigationStack {
                 FiltersButtonRowView()
                     .frame(height: 32)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    //.padding()
-                    
-                    
+
+
                 List(doctorsData) { doctor in
                     Section {
                         DoctorChoiceRowView(doctorInfo: doctor)
-
                     }
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets(top: 20, leading: 16, bottom: 16, trailing: 16))
 
                 }
-                
                 .listSectionSpacing(16)
                 .navigationTitle("Педиатры")
                 .navigationBarTitleDisplayMode(.inline)
@@ -40,7 +36,6 @@ struct ContentView: View {
                 }
  
             }
-            
             .searchable(text: $searchText) {
                 
             }
@@ -63,9 +58,7 @@ struct ContentView: View {
             }
             
         }.accentColor(.pink)
-        
     }
-    
 }
 
 #Preview {
