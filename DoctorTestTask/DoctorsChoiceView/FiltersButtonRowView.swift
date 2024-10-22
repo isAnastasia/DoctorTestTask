@@ -25,7 +25,7 @@ struct FiltersButtonRowView: View {
                     .fontWeight(selectedSortOption == .price ? .bold : .regular)
                     .foregroundColor(selectedSortOption == .price ? .white : .gray)
                     .frame(maxWidth: .infinity)
-                    .background(selectedSortOption == .price ? Color.pink : Color.white)
+                    .background(selectedSortOption == .price ? .coral : Color.white)
 
             }
             .roundedCornerWithBorder(lineWidth: 0.5, borderColor: .gray, radius: 8, corners: [.topLeft, .bottomLeft])
@@ -41,7 +41,7 @@ struct FiltersButtonRowView: View {
                     .foregroundColor(selectedSortOption == .experience ? .white : .gray)
 
                     .frame(maxWidth: .infinity)
-                    .background(selectedSortOption == .experience ? Color.pink : Color.white)
+                    .background(selectedSortOption == .experience ? .coral : Color.white)
 
                     .overlay(
                         Rectangle().stroke( Color.gray, lineWidth: 0.5)
@@ -60,7 +60,7 @@ struct FiltersButtonRowView: View {
                     .foregroundColor(selectedSortOption == .rating ? .white : .gray)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
                     .frame(maxWidth: .infinity)
-                    .background(selectedSortOption == .rating ? Color.pink : Color.white)
+                    .background(selectedSortOption == .rating ? .coral : Color.white)
             }
             
             .roundedCornerWithBorder(lineWidth: 0.5, borderColor: .gray, radius: 8, corners: [.topRight, .bottomRight])

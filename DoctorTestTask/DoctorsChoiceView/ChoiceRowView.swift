@@ -17,6 +17,7 @@ struct DoctorChoiceRowView: View {
                     .resizable()
                     .frame(width: 50, height: 50, alignment: .leading)
                     .clipShape(Circle())
+                    .padding(EdgeInsets(top: 20, leading: 16, bottom: 8, trailing: 8))
                     
                 
                     
@@ -35,7 +36,7 @@ struct DoctorChoiceRowView: View {
                             Image(systemName: "star.fill")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .foregroundStyle(.pink)
+                                .foregroundStyle(.coral)
                         }
                         ForEach(0..<5 - doctorInfo.rating) {_ in
                             Image(systemName: "star.fill")
@@ -48,19 +49,22 @@ struct DoctorChoiceRowView: View {
                     .frame(width: 69.6, height: 12)
                     Text("\(doctorInfo.specialization) * Стаж \(doctorInfo.workExpirience) лет")
                         .font(.system(size: 14))
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.darkGray)
                     Text("От \(doctorInfo.price) Р")
                         .font(.system(size: 16, weight: .bold))
                 }
                 .frame(maxWidth: .infinity, minHeight: 126, alignment: .topLeading)
+                .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
 
                 Image(systemName: "heart")
                     .resizable()
-                    .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 2))
-                    .frame(width: 24, height: 24, alignment: .topTrailing)
+                    .frame(width: 20, height: 17.16, alignment: .topTrailing)
+                    .padding(EdgeInsets(top: 24, leading: 0, bottom: 0, trailing: 18))
+                    
                     .foregroundStyle(.gray)
             }
             .frame(maxWidth: .infinity)
+            
             
             Button(action: {}) {
                 Text("Записаться")
@@ -68,16 +72,28 @@ struct DoctorChoiceRowView: View {
                     .foregroundStyle(.white)
             }
             .buttonStyle(.plain)
-            .frame(maxWidth: .infinity, minHeight: 47)
-            .background(.pink)
+            .frame( minHeight: 47)
+            .containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
+                return length - 32
+                
+            }
+            
+            .background(.coral)
             .cornerRadius(8)
             
-        }.containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
-            return length - 32
+            
+            
+        }
+        .containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
+            //return length
             //return 321
+            return 353
         
             
         }
+        .padding(EdgeInsets(top: 0, leading: 0, bottom: 16, trailing: 0))
+        .background(Color.white)
+        .roundedCornerWithBorder(lineWidth: 1, borderColor: .silver, radius: 8, corners: .allCorners)
         
     }
 }
