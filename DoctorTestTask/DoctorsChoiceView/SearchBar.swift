@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SearchBar: View {
     @State var searchText = ""
-    //@Binding var searchTextBinding: String
     var hasCancel: Bool = true
     @State private var fgColor = Color.red
     var action: ()->()
@@ -18,9 +17,7 @@ struct SearchBar: View {
         HStack {
             ZStack {
                 Rectangle()
-                //RoundedRectangle(cornerRadius: 8)
                     .frame(height: 36)
-                    //.cornerRadius(12)
                     .foregroundColor(.white)
                     .roundedCornerWithBorder(lineWidth: 1, borderColor: .silver, radius: 8, corners: .allCorners)
                 HStack {
@@ -32,13 +29,9 @@ struct SearchBar: View {
                     .onChange(of: searchText) {
                         action()
                     }
-                    
-                    
                     .font(.system(size: 16))
                     .frame(height: 36)
-                    //.textFieldStyle(.plain)
                     .foregroundStyle(Color.darkGray)
-                    //.cornerRadius(12)
                 }
 
             }
@@ -46,19 +39,6 @@ struct SearchBar: View {
                 return length - 32
                 
             }
-//            if hasCancel {
-//                Button(action: {
-//                    searchText = ""
-//                    onCancel()
-//                }) {
-//                    Text("Cancel")
-//                        .foregroundColor(.gray)
-//                        .font(.system(size: 16))
-//                }
-//                .padding(.trailing, 8)
-//                .transition(.move(edge: .trailing))
-//                .animation(.easeInOut(duration: 1.0), value: UUID())
-//            }
         }
     }
 }
@@ -68,6 +48,3 @@ struct SearchBar_Previews: PreviewProvider {
         SearchBar(action: {}, onCancel: {})
     }
 }
-//#Preview {
-//    SearchBar()
-//}

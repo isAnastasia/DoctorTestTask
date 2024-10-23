@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct DoctorInfoView: View {
+struct DoctorDetailView: View {
     @Environment(\.dismiss) var dismiss
-    var doctorInfo: DoctorInfo
+    @ObservedObject var viewModel: DoctorViewModel
     var text: String = "Проводит диагностику и лечение терапевтических больных. Осуществляет расшифровку и снятие ЭКГ. Дает рекомендации по диетологии. Доктор имеет опыт работы в России и зарубежом. Проводит консультации пациентов на английском языке."
 
 
@@ -20,17 +20,17 @@ struct DoctorInfoView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .top) {
-                Image(doctorInfo.avatar)
+                Image("avatar1")
                     .resizable()
                     .frame(width: 50, height: 50, alignment: .leading)
                     .clipShape(Circle())
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
                 
                 VStack(alignment: .leading,  spacing: 0) {
-                    Text("\(doctorInfo.surname)")
+                    Text(viewModel.doctor.surname)
                         .font(.boldBodyFont)
                         .frame(height: 24)
-                    Text("\(doctorInfo.name)")
+                    Text(viewModel.doctor.name)
                         .font(.boldBodyFont)
                         .frame(height: 24)
                 }
@@ -41,43 +41,22 @@ struct DoctorInfoView: View {
                 .frame(height: 20)
             
             VStack(alignment: .leading,spacing: 10) {
-                HStack( spacing: 4) {
-                    Image("clock")
-                        .foregroundStyle(Color.darkGray)
-                        .frame(width: 24, height: 24)
-                    Text("Опыт работы")
-                        .foregroundStyle(Color.darkGray)
-                        .font(.smallBodyFont)
-                        .frame(width: 127, height: 24, alignment: .leading)
+                ForEach(["clock", "medicine", "cap", "location"], id: \.self) { key in
+                    if let value = viewModel.dataArray[key] {
+                        HStack( spacing: 4) {
+                            Image(key)
+                                .foregroundStyle(Color.darkGray)
+                                .frame(width: 24, height: 24)
+                            Text(value)
+                                .foregroundStyle(Color.darkGray)
+                                .font(.smallBodyFont)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .frame( height: 24)
+                        }
+                    }
                 }
-                HStack( spacing: 4) {
-                    Image("medicine")
-                        .foregroundStyle(Color.darkGray)
-                        .frame(width: 24, height: 24)
-                    Text("Опыт работы")
-                        .foregroundStyle(Color.darkGray)
-                        .font(.smallBodyFont)
-                        .frame(width: 127, height: 24, alignment: .leading)
-                }
-                HStack( spacing: 4) {
-                    Image("cap")
-                        .foregroundStyle(Color.darkGray)
-                        .frame(width: 24, height: 24)
-                    Text("Опыт работы")
-                        .foregroundStyle(Color.darkGray)
-                        .font(.smallBodyFont)
-                        .frame(width: 127, height: 24, alignment: .leading)
-                }
-                HStack( spacing: 4) {
-                    
-                    Image("location")
-                        .foregroundStyle(Color.darkGray)
-                        .frame(width: 24, height: 24)
-                    Text("Опыт работы")
-                        .foregroundStyle(Color.darkGray)
-                        .font(.smallBodyFont)
-                        .frame(width: 127, height: 24, alignment: .leading)
-                }
+
                 
             }
             Spacer()
@@ -87,7 +66,7 @@ struct DoctorInfoView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.boldBodyFont)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
-                Text("от 600Р")
+                Text(viewModel.getPriceLabel())
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .font(.boldBodyFont)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
@@ -164,5 +143,22 @@ struct DoctorInfoView: View {
 }
 
 #Preview {
-    DoctorInfoView(doctorInfo: doctorsData[1])
+    DoctorDetailView(viewModel: DoctorViewModel(doctor: DoctorInfoModel(
+        id: "1",
+        avatar: "avatar1",
+        name: "Ольга Александрова",
+        surname: "Бардо",
+        rating: 3,
+        seniority: 5,
+        textChatPrice: 300,
+        videoChatPrice: 400,
+        hospitalPrice: 500,
+        minimumPrice: 300,
+        specialization: "Педиатр",
+        workExpirience: "Детская клиника “РебёнОК",
+        category: 1,
+        educationLabel: "Санкт-Петербургский политехнический университет Петра Великого",
+        nearestReceptionTime: nil,
+        isLiked: true)))
 }
+

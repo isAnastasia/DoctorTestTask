@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DoctorsListView: View {
     @State private var searchText = ""
+    @ObservedObject var viewModel = DoctorsViewModel()
     var body: some View {
         NavigationStack {
             VStack() {
@@ -23,9 +24,9 @@ struct DoctorsListView: View {
                 ScrollView (.vertical) {
                     LazyVStack(spacing: 16) {
 
-                        ForEach(doctorsData) { doctor in
-                            NavigationLink(destination: DoctorInfoView(doctorInfo: doctor)) {
-                                DoctorChoiceRowView(doctorInfo: doctor)
+                        ForEach(viewModel.doctors) { doctor in
+                            NavigationLink(destination: DoctorDetailView(viewModel: DoctorViewModel(doctor: doctor))) {
+                                DoctorChoiceRowView(viewModel: DoctorViewModel(doctor: doctor))
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -48,6 +49,9 @@ struct DoctorsListView: View {
                 }
             }
             
+        }
+        .onAppear {
+            viewModel.loadUsers()
         }
         
         //.navigationTitle("Педиатры")

@@ -46,9 +46,7 @@ struct FiltersButtonRowView: View {
                     .overlay(
                         Rectangle().stroke( Color.gray, lineWidth: 0.5)
                     )
-
             }
-
 
             Button(action: {
                 selectedSortOption = .rating
@@ -62,44 +60,14 @@ struct FiltersButtonRowView: View {
                     .frame(maxWidth: .infinity)
                     .background(selectedSortOption == .rating ? .coral : Color.white)
             }
-            
             .roundedCornerWithBorder(lineWidth: 0.5, borderColor: .gray, radius: 8, corners: [.topRight, .bottomRight])
 
         }
     }
 }
 
-struct RoundedCorner: Shape {
-    let radius: CGFloat
-    let corners: UIRectCorner
-
-    init(radius: CGFloat = .infinity, corners: UIRectCorner = .allCorners) {
-        self.radius = radius
-        self.corners = corners
-    }
-
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        return Path(path.cgPath)
-    }
-}
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
-    }
-    func roundedCornerWithBorder(lineWidth: CGFloat, borderColor: Color, radius: CGFloat, corners: UIRectCorner) -> some View {
-            clipShape(RoundedCorner(radius: radius, corners: corners) )
-                .overlay(RoundedCorner(radius: radius, corners: corners)
-                    .stroke(borderColor, lineWidth: lineWidth))
-        }
-}
-
 struct FiltersButtonRowView_Previews: PreviewProvider {
     static var previews: some View {
         FiltersButtonRowView()
-            //.previewLayout(.sizeThatFits)
     }
 }
-//#Preview {
-//    
-//}

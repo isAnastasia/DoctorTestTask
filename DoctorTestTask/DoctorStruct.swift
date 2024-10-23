@@ -55,7 +55,7 @@ struct WorkPlace: Codable {
 }
 
 // Структура для пользователя
-struct User: Codable {
+struct User: Identifiable, Codable {
     let id: String
     let avatar: String?
     let firstName: String
@@ -65,7 +65,7 @@ struct User: Codable {
     let specialization: [Specialization]
     let rating: Double
     let seniority: Int // стаж
-    let categoryLabel: String
+    let category: Int
     let nearestReceptionTime: Int?
     let textChatPrice: Int
     let videoChatPrice: Int
@@ -86,7 +86,7 @@ struct User: Codable {
         case specialization
         case rating = "ratings_rating"
         case seniority
-        case categoryLabel = "category_label"
+        case category
         case nearestReceptionTime = "nearest_reception_time"
         case textChatPrice = "text_chat_price"
         case videoChatPrice = "video_chat_price"

@@ -8,8 +8,6 @@
 import UIKit
 import SwiftUICore
 
-
-
 struct Constants {
     static private var font = UIFont(name: "SFProDisplay-Regular", size: 14) ?? UIFont.systemFont(ofSize: 14)
     static let lineSpacing: CGFloat = 24 - font.lineHeight
@@ -21,4 +19,3 @@ extension Font {
     static var smallBodyFont: Font { Font.custom( "SFProDisplay-Regular", size: 14)}
     
 }
-
