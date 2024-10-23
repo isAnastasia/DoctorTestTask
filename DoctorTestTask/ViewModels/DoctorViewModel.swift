@@ -10,6 +10,7 @@ import Foundation
 final class DoctorViewModel: ObservableObject {
     @Published var doctor = DoctorInfoModel()
     var dataArray: [String:String] = [:]
+    var priceInfo: [PriceViewModel]
     
     //MARK: - Init
     init(doctor: DoctorInfoModel) {
@@ -34,6 +35,10 @@ final class DoctorViewModel: ObservableObject {
         if doctor.workExpirience != nil {
             dataArray["location"] = doctor.workExpirience!
         }
+        
+        priceInfo = [PriceViewModel(price: doctor.videoChatPrice, tag: "30 мин", name: "Видеоконсультация"),
+                     PriceViewModel(price: doctor.textChatPrice, tag: "30 мин", name: "Чат с врачом"),
+                     PriceViewModel(price: doctor.hospitalPrice, tag: "В клинике", name: "Приём в клинике")]
         
     }
     //MARK: - Actions

@@ -7,19 +7,15 @@
 
 import Foundation
 
+//struct DoctorsResultModel: Decodable {
+//    let doctors: [Doctor]
+//}
 
-
-struct DoctorsResultModel: Decodable {
-    let doctors: [Doctor]
-}
-
-// Структура для специализации пользователя
 struct Specialization: Codable {
     let id: Int
     let name: String
     let isModerated: Bool
     
-    // Здесь используется CodingKeys, чтобы привести "is_moderated" из JSON к isModerated в Swift
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -27,7 +23,6 @@ struct Specialization: Codable {
     }
 }
 
-// Структура для информации об образовании (университет)
 struct EducationTypeLabel: Codable {
     let id: Int
     let name: String
@@ -76,7 +71,6 @@ struct User: Identifiable, Codable {
     
     let isFavorite: Bool
     
-    // Здесь также используется CodingKeys для приведения имен из JSON к Swift стилю
     enum CodingKeys: String, CodingKey {
         case id
         case avatar
@@ -97,24 +91,24 @@ struct User: Identifiable, Codable {
     }
 }
 
-struct Doctor: Identifiable, Codable {
-    let id: String
-    let avatar: String
-    let first_name: String
-    let last_name: String
-    let patronymic: String
-    let ratings_rating: Int
-    
-    let seniority: Int // стаж
-    let is_favorite: Bool
-    let category_label: String
-    let nearest_reception_time: String
-    let text_chat_price: Int
-    let video_chat_price: Int
-    let hospital_price: Int
-    
-    
-}
+//struct Doctor: Identifiable, Codable {
+//    let id: String
+//    let avatar: String
+//    let first_name: String
+//    let last_name: String
+//    let patronymic: String
+//    let ratings_rating: Int
+//    
+//    let seniority: Int // стаж
+//    let is_favorite: Bool
+//    let category_label: String
+//    let nearest_reception_time: String
+//    let text_chat_price: Int
+//    let video_chat_price: Int
+//    let hospital_price: Int
+//    
+//    
+//}
 
 // Структура для объекта data, который содержит массив пользователей
 struct UserData: Codable {

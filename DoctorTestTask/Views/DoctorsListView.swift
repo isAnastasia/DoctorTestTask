@@ -34,7 +34,6 @@ struct DoctorsListView: View {
                 }
                     
             }
-            //.background(.red)
             
             .ignoresSafeArea()
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
@@ -42,7 +41,7 @@ struct DoctorsListView: View {
             .navigationTitle("Педиатры")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color.gray, for: .navigationBar)
-            //.toolbarBackground(.visible, for: .navigationBar)
+
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Image(systemName: "chevron.backward").foregroundStyle(Color.gray)
@@ -53,15 +52,6 @@ struct DoctorsListView: View {
         .onAppear {
             viewModel.loadUsers()
         }
-        
-        //.navigationTitle("Педиатры")
-//        .searchable(text: $searchText) {
-//            
-//        }
-        //.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-//        .searchable(text: $searchText) {
-//            
-//        }
         
     }
 }
