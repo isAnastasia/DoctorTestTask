@@ -46,7 +46,7 @@ final class DoctorViewModel: ObservableObject {
         doctor.isLiked.toggle()
     }
     
-    public func MakeAnAppointment() {
+    public func makeAnAppointment() {
         
     }
     
@@ -65,6 +65,13 @@ final class DoctorViewModel: ObservableObject {
             return spec + " * " + seniority
         }
         return seniority
+    }
+    
+    public func isThereNearestTime() -> Bool{
+        if (doctor.nearestReceptionTime != nil) {
+            return true
+        }
+        return false
     }
     
     static private func getSeniority(years: Int) -> String {

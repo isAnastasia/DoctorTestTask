@@ -7,10 +7,6 @@
 
 import Foundation
 
-//struct DoctorsResultModel: Decodable {
-//    let doctors: [Doctor]
-//}
-
 struct Specialization: Codable {
     let id: Int
     let name: String
@@ -90,25 +86,6 @@ struct User: Identifiable, Codable {
         case isFavorite = "is_favorite"
     }
 }
-
-//struct Doctor: Identifiable, Codable {
-//    let id: String
-//    let avatar: String
-//    let first_name: String
-//    let last_name: String
-//    let patronymic: String
-//    let ratings_rating: Int
-//    
-//    let seniority: Int // стаж
-//    let is_favorite: Bool
-//    let category_label: String
-//    let nearest_reception_time: String
-//    let text_chat_price: Int
-//    let video_chat_price: Int
-//    let hospital_price: Int
-//    
-//    
-//}
 
 // Структура для объекта data, который содержит массив пользователей
 struct UserData: Codable {

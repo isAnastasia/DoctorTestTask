@@ -17,5 +17,6 @@ extension Font {
     static var bodyFont: Font {Font.custom("SFProDisplay-Regular", size: 16)}
     static var boldBodyFont: Font {Font.custom("SFProDisplay-Bold", size: 16)}
     static var smallBodyFont: Font { Font.custom( "SFProDisplay-Regular", size: 14)}
+    static var smallBodyBoldFont: Font { Font.custom( "SFProDisplay-Bold", size: 14)}
     
 }

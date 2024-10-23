@@ -101,18 +101,17 @@ struct DoctorDetailView: View {
 
                 
                 Button(action: {
+                    viewModel.makeAnAppointment()
                 }) {
-                    Text("Записаться")
+                    Text(viewModel.isThereNearestTime() ? "Записаться" : "Нет свободного времени")
                         .frame(height: 24)
                         .font(.boldBodyFont)
-                        //.fontWeight(selectedSortOption == .rating ? .bold : .regular)
-                        .foregroundColor(.white )
-                        //.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                        .foregroundColor(viewModel.isThereNearestTime() ? .white : .black)
                         .frame(maxWidth: .infinity)
                         
                 }
                 .frame(height: 56)
-                .background(.coral)
+                .background(viewModel.isThereNearestTime() ? .coral : .bGray)
                 .roundedCornerWithBorder(lineWidth: 0.5, borderColor: .silver, radius: 8, corners: [.allCorners])
                 
                 Spacer()

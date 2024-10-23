@@ -66,24 +66,24 @@ struct DoctorChoiceRowView: View {
             .frame(maxWidth: .infinity)
             
             Button(action: {
-                viewModel.MakeAnAppointment()
+                viewModel.makeAnAppointment()
             }) {
-                Text("Записаться")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundStyle(.white)
+                Text(viewModel.isThereNearestTime() ? "Записаться" : "Нет свободного времени")
+                    .font(.smallBodyBoldFont)
+                    .foregroundStyle(viewModel.isThereNearestTime() ? .white : .black)
             }
             .buttonStyle(.plain)
             .frame( minHeight: 47)
             .containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
                 return length - 32
             }
-            .background(.coral)
-            .cornerRadius(8) 
+            .background(viewModel.isThereNearestTime() ? .coral : .bGray)
+            .cornerRadius(8)
         }
         .containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
-            return length
+            //return length
             //return 321
-            //return 353
+            return 353
         
             
         }

@@ -14,22 +14,26 @@ struct ContentView: View {
 
             DoctorsListView()
             .tabItem {
-                Label("Главная", systemImage: "house.fill")
+                Image("House")
+                Text("Главная")
             }
             
             Text("Second View")
             .tabItem {
-                Label("Приёмы", systemImage: "calendar")
+                Image("Calendar")
+                Text("Приёмы")
             }
 
             Text("Third View")
             .tabItem {
-                Label("Чат", systemImage: "message.fill")
+                Image("Chat")
+                Text("Чат")
             }
             
             Text("Forth View")
             .tabItem {
-                Label("Профиль", systemImage: "person.fill")
+                Image("Person")
+                Text("Профиль")
             }
             
         }.accentColor(.pink)
