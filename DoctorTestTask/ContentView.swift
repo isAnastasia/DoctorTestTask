@@ -13,10 +13,10 @@ struct ContentView: View {
         TabView {
 
             DoctorsListView()
-            
             .tabItem {
                 Label("Главная", systemImage: "house.fill")
             }
+            
             Text("Second View")
             .tabItem {
                 Label("Приёмы", systemImage: "calendar")
