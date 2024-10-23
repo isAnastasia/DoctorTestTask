@@ -81,9 +81,9 @@ struct DoctorChoiceRowView: View {
             .cornerRadius(8)
         }
         .containerRelativeFrame(.horizontal, alignment: .center) { length, axis in
-            //return length
+            return length
             //return 321
-            return 353
+            //return 353
         
             
         }

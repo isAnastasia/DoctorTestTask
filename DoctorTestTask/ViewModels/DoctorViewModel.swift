@@ -62,7 +62,7 @@ final class DoctorViewModel: ObservableObject {
     public func getSpecialisation() -> String {
         let seniority = "стаж " + DoctorViewModel.getSeniority(years: doctor.seniority)
         if let spec = doctor.specialization {
-            return spec + " * " + seniority
+            return spec + "・" + seniority
         }
         return seniority
     }

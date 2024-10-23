@@ -12,7 +12,6 @@ struct DoctorDetailView: View {
     @ObservedObject var viewModel: DoctorViewModel
     var text: String = "Проводит диагностику и лечение терапевтических больных. Осуществляет расшифровку и снятие ЭКГ. Дает рекомендации по диетологии. Доктор имеет опыт работы в России и зарубежом. Проводит консультации пациентов на английском языке."
 
-
     var lines: [String] {
         text.components(separatedBy: .newlines)
     }
@@ -58,7 +57,6 @@ struct DoctorDetailView: View {
                         }
                     }
 
-                    
                 }
                 Spacer()
                     .frame(height: 20)
@@ -72,7 +70,6 @@ struct DoctorDetailView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .font(.boldBodyFont)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
-                        
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -86,7 +83,6 @@ struct DoctorDetailView: View {
                 Spacer()
                     .frame(height: 24)
 
-
                 LazyVStack(alignment: .leading) {
                     ForEach(lines, id: \.self) { line in
                         Text(line)
@@ -99,7 +95,6 @@ struct DoctorDetailView: View {
                 
                 Spacer(minLength: 24)
 
-                
                 Button(action: {
                     viewModel.makeAnAppointment()
                 }) {
@@ -137,8 +132,6 @@ struct DoctorDetailView: View {
             }
         }
         
-            
-            
     }
 }
 

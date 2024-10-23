@@ -16,9 +16,7 @@ final class DoctorsViewModel: ObservableObject {
             print("Error")
             return
         }
-        
         doctors = convertUsersToDoctorsInfo(users: users)
-        
     }
     
     private func convertUsersToDoctorsInfo(users: [User]) -> [DoctorInfoModel] {
