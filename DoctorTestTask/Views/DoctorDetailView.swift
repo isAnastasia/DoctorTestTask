@@ -43,18 +43,19 @@ struct DoctorDetailView: View {
                 VStack(alignment: .leading,spacing: 10) {
                     ForEach(["clock", "medicine", "cap", "location"], id: \.self) { key in
                         if let value = viewModel.dataArray[key] {
-                            HStack( spacing: 4) {
+                            HStack(spacing: 4) {
                                 Image(key)
-                                    .foregroundStyle(Color.darkGray)
+                                    .foregroundStyle(Color.darkgray)
                                     .frame(width: 24, height: 24)
                                 Text(value)
-                                    .foregroundStyle(Color.darkGray)
+                                    .foregroundStyle(Color.darkgray)
                                     .font(.smallBodyFont)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .frame( height: 24)
+                                    .frame(height: 24)
                             }
                         }
+                        
                     }
 
                 }

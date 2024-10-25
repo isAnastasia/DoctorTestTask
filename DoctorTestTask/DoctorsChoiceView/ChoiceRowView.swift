@@ -46,7 +46,7 @@ struct DoctorChoiceRowView: View {
                     .frame(width: 69.6, height: 12)
                     Text(viewModel.getSpecialisation())
                         .font(.system(size: 14))
-                        .foregroundStyle(.darkGray)
+                        .foregroundStyle(.darkgray)
                     Text(viewModel.getPriceLabel())
                         .font(.system(size: 16, weight: .bold))
                 }

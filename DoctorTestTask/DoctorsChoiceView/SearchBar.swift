@@ -31,7 +31,7 @@ struct SearchBar: View {
                     }
                     .font(.system(size: 16))
                     .frame(height: 36)
-                    .foregroundStyle(Color.darkGray)
+                    .foregroundStyle(Color.darkgray)
                 }
 
             }
